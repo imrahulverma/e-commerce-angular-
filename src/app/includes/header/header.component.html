@@ -1,0 +1,48 @@
+<mat-toolbar color="primary">
+    <button mat-button  ><a routerLink="/" style="font-size: 25px; font-weight: 600;">A-Z</a> </button >
+      <span class="spacer"></span>
+
+
+      <!-- DEFAULT NAV  -->
+      <span [ngSwitch]="sellerMenu">
+        
+                <span *ngSwitchCase="'default'">
+            <input fill="outline"  type="search" [(ngModel)]="value" placeholder="search products,items ">
+            <button *ngIf="value" matSuffix mat-icon-button  (click)="value=''">
+            </button>
+        
+
+        <button mat-button  *ngIf="sellerMenu==='default'">
+            Login
+        </button>
+        <button mat-button routerLink="seller-auth">
+            Seller
+        </button>
+        <button   mat-button>
+            Cart
+        </button>
+    </span>
+      
+      <!-- SELLER NAV  -->
+      <span *ngSwitchCase="'seller'">
+        
+            
+        
+
+    <button mat-button  >
+       <mat-icon>account_circle</mat-icon>{{sellerName}}
+    </button>
+    <button mat-button routerLink="seller-add-product"> 
+       Add Product
+    </button>
+    <button   mat-button routerLink="seller-home">
+        Product List
+    </button>
+
+    <button   mat-button (click)="logout()">
+        Logout
+        </button>
+  </span>
+</span>
+
+</mat-toolbar>

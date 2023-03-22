@@ -1,0 +1,35 @@
+<div id="prod-m" *ngIf="productAddedMsg">{{productAddedMsg}}</div>
+<form [formGroup]="addProductForm">
+
+
+   
+    <mat-form-field appearance="fill">
+        <mat-label>Product Name</mat-label>
+        <input type="text" matInput name="productName" formControlName="productName">
+    </mat-form-field>
+
+    <mat-form-field >
+        <mat-label>Product Price</mat-label>
+        <input type="text" matInput name="productPrice" formControlName="productPrice">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Product Type</mat-label>
+        <input type="text" matInput name="productType" formControlName="productType">
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+     <textarea name="" id="" cols="30" rows="3" matInput name="productDesc" formControlName="productDesc"></textarea>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Image Url</mat-label>
+        <input type="url" matInput name="productImageUrl" formControlName="productImageUrl">
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="addProduct()">Add Product</button>
+    
+
+
+</form>

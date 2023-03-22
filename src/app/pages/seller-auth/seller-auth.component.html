@@ -1,0 +1,76 @@
+<div class="container-fluid">
+
+<div class="row">
+  <div class="col-lg-8">
+    <div class="hero-area"><img width="100%" src="https://d3nn873nee648n.cloudfront.net/900x600/19873/300-SM971418.jpg" alt=""></div>
+  </div>
+  <div class="col-lg-4 form-col">
+    <div class="form">
+
+    <!-- signup form  -->
+<form [formGroup]="sellerRegisterForm"  *ngIf="signUpFormView">
+  <h2>Seller Signup</h2>
+  <mat-divider></mat-divider>
+
+  <mat-form-field >
+      <mat-label>Name</mat-label>
+      <input type="text" matInput formControlName="name" name="name" >
+  </mat-form-field>
+  
+  <mat-form-field >
+      <mat-label>Email Id</mat-label>
+      <input type="email" matInput formControlName="emailId" name="emailId" >
+    </mat-form-field>
+
+    <mat-form-field >
+      <mat-label>Phone No.</mat-label>
+      <input type="text" matInput formControlName="phno" name="phno" >
+    </mat-form-field>
+
+    <mat-form-field appearance="fill" color="primary" >
+      <mat-label >Password</mat-label>
+      <input type="password" matInput formControlName="password" name="password" >
+    </mat-form-field>
+
+  <span>
+      <button mat-raised-button color="accent" (click)="signUp()">Signup</button>
+  </span>
+  <p> Already a user? <a (click)="loginToggle()"> Login</a>  </p>
+</form>
+
+<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- login form  -->
+
+<form [formGroup]="sellerLoginForm" *ngIf="loginFormView"  >
+<h2>Seller Login</h2>
+<mat-divider></mat-divider>
+
+
+<mat-form-field >
+    <mat-label>Email Id</mat-label>
+    <input type="email" matInput formControlName="emailId" name="emailId" >
+  </mat-form-field>
+
+
+  <mat-form-field appearance="fill" color="primary" >
+    <mat-label >Password</mat-label>
+    <input type="password" matInput formControlName="password" name="password" >
+  </mat-form-field>
+
+<span>
+    <button mat-raised-button color="accent" (click)="login()">Login</button>
+</span>
+<p>New user?<a (click)="signuptoggle()">Signup</a></p>
+</form>
+
+
+
+  </div>
+  </div>
+  
+</div>
+
+
+
+</div>

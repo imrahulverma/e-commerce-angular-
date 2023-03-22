@@ -1,0 +1,27 @@
+form{
+    display: flex;
+    max-width: 70vw;
+    padding: 30px;
+    margin: auto;
+    box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+}
+button{
+    width:150px
+    /* margin: auto; */
+}
+
+#prod-m{
+    color: green;
+    font-size: large;
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 30px;
+    position: absolute;
+    top:0%;
+    left:40%;
+    padding: 30px;
+    background-color: white;
+    z-index: 100;
+    box-shadow: 0 0 13px 5px rgba(0, 0, 0, 0.1);
+}
