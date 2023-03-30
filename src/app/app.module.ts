@@ -12,6 +12,10 @@ import { SellerAuthComponent } from './pages/seller-auth/seller-auth.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SellerHomeComponent } from './pages/seller-home/seller-home.component';
 import { SellerAddproductComponent } from './pages/seller-addproduct/seller-addproduct.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchComponent } from './pages/search/search.component';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
+import { UserAuthComponent } from './pages/user-auth/user-auth.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +24,10 @@ import { SellerAddproductComponent } from './pages/seller-addproduct/seller-addp
     HomeComponent,
     SellerAuthComponent,
     SellerHomeComponent,
-    SellerAddproductComponent
+    SellerAddproductComponent,
+    SearchComponent,
+    ProductDetailsComponent,
+    UserAuthComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +36,8 @@ import { SellerAddproductComponent } from './pages/seller-addproduct/seller-addp
     MaterialModule
     ,ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
 
   ],
   providers: [],

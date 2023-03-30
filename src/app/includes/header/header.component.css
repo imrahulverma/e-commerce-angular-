@@ -2,7 +2,7 @@
 flex:1 1 auto;;
 }
 input{
-    width:250px;
+    width:400px;
     height: 35px;
     /* border-radius: 12px; */
     font-size: small;
@@ -16,4 +16,37 @@ input::placeholder{
     font-size:small ;
     padding: 7px;
 
+}
+ul{
+    position: absolute;
+    
+    top: 50px;
+    display: flex;
+    list-style: none;
+    flex-direction: column;
+    background: white;
+    color: black;
+    padding: 10px;
+    width:fit-content;
+    border: 1px solid #00000036;
+    z-index: 1000;
+
+}
+li:last-child{
+    border: none;
+}
+li{
+    border-bottom: 1px solid #00000036;
+    padding: 5px 1px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.sellerMenu{
+    display: flex;
+    gap: 30px;
+}
+
+datalist{
+    float: left;
 }

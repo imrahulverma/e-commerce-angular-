@@ -1,0 +1,24 @@
+<div class="row" *ngIf="productData">
+    <div class="col-4">
+        <div class="image">
+            <img src="{{productData.productImageUrl}}" alt="">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="details">
+            <p class="product-name">{{productData.productName}}</p>
+
+            <p class="product-type">{{productData.productType}}</p>
+            <p class="product-info">{{productData.productDesc}}</p>
+            <p class="product-price">₹{{productData.productPrice}} <span class="strikedPrice">
+                    ₹{{productData.productPrice*1.1|number:'1.0-0'}}</span></p>
+            <p class="saved-price">You Saved ₹{{((productData.productPrice*1.1)-
+                (productData.productPrice))|number:'1.0-0'}}</p>
+<div class="button">
+                <button class="btn" id="buy-btn">Buy Now</button>
+                <button class="btn" id="cart-btn" *ngIf="!addToCartToggle" (click)="addCart()">Add to Cart</button>
+                <button class="btn" id="cart-btn" *ngIf="addToCartToggle">Go To Cart</button>
+            </div>
+        </div>
+    </div>
+</div>

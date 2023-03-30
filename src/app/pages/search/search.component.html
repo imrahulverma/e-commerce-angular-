@@ -1,0 +1,13 @@
+<div class="row cat" *ngFor="let p of productList">
+  
+        <div class="product-container">
+           <a routerLink="/details/{{p.id}}"> <img [src]="p.productImageUrl" alt=""></a>
+            <span class="productInfo">
+                <a [routerLink]="['/details/{{p.id}}']"><p class="product-name">{{p.productName}}</p></a>
+            <p class="product-type">{{p.productType}}</p>
+            <p class="product-desc">{{p.productDesc}}</p>
+            <p class="product-price">₹{{p.productPrice}}  <span class="strikedPrice"> ₹{{p.productPrice*1.1|number:'1.0-0'}}</span></p>
+        </span>
+        </div>
+    
+</div>

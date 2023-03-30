@@ -1,48 +1,87 @@
 <mat-toolbar color="primary">
-    <button mat-button  ><a routerLink="/" style="font-size: 25px; font-weight: 600;">A-Z</a> </button >
-      <span class="spacer"></span>
+    <button mat-button><a routerLink="/" style="font-size: 25px; font-weight: 600;">A-Z</a> </button>
+    <span class="spacer"></span>
 
 
-      <!-- DEFAULT NAV  -->
-      <span [ngSwitch]="sellerMenu" >
-        
-                <span *ngSwitchCase="'default'">
-            <input fill="outline"  type="search" [(ngModel)]="value" placeholder="search products,items ">
-            <button *ngIf="value" matSuffix mat-icon-button  (click)="value=''">
+    <!-- DEFAULT NAV  -->
+    <span [ngSwitch]="sellerMenu" >
+        <span *ngSwitchCase="'default'" class="sellerMenu">
+            <span>
+                <span>
+                   
+                    <input fill="outline" list="items" type="search"  #searchquery (blur)="emptySearch()" (keyup)="searchFn()" [(ngModel)]="search"
+                        placeholder="search products,items ">
+                        <button type="submit" (click)="searchPage(searchquery.value)">Search</button>
+                    <button *ngIf="value" matSuffix mat-icon-button (click)="value=''">
+                    </button>
+                    <!-- <ul  *ngIf="searchList" >
+                        <li *ngFor="let s of searchList">{{s.productName}}</li>
+                    </ul> -->
+                    <datalist id="items" *ngIf="searchList">
+                        <option *ngFor="let s of searchList" [value]="s.productName" #opt>
+                            {{s.productType}}
+                            </option>
+                        </datalist>
+                </span>
+                <span>
+                   
+                       
+                </span>
+            </span>
+
+            <button routerLink="user-auth" mat-button *ngIf="sellerMenu==='default'">
+                Login
             </button>
-        
+            <button mat-button routerLink="seller-auth">
+                Seller
+            </button>
+            <button  mat-icon-button matBadgeSize="small" [matBadge]="cartLength">
+                <mat-icon>shopping_cart</mat-icon>
+            </button>
+        </span>
 
-        <button mat-button  *ngIf="sellerMenu==='default'">
-            Login
-        </button>
-        <button mat-button routerLink="seller-auth">
-            Seller
-        </button>
-        <button   mat-button>
-            Cart
-        </button>
+        <!-- SELLER NAV  -->
+        <span *ngSwitchCase="'seller'" class="sellerMenu">
+
+
+            <button mat-button>
+                <mat-icon>account_circle</mat-icon>{{sellerName}}
+            </button>
+
+            <button mat-button routerLink="seller-add-product">
+                Add Product
+            </button>
+
+            <button mat-button routerLink="seller-home">
+                Product List
+            </button>
+
+            <button mat-button (click)="logout()">
+                Logout
+            </button>
+
+        </span>
+<!-- usernav -->
+        <span *ngSwitchCase="'user'" class="sellerMenu">
+
+            <button mat-button routerLink="/">
+                Home
+            </button>
+            <button mat-button>
+                <mat-icon>account_circle</mat-icon>{{username}}
+            </button>
+
+           
+
+            <button mat-button routerLink="seller-auth">
+               seller
+                       </button>
+
+            <button mat-button (click)="logoutUser()">
+                Logout
+            </button>
+
+        </span>
     </span>
-      
-      <!-- SELLER NAV  -->
-      <span *ngSwitchCase="'seller'">
-        
-            
-        
-
-    <button mat-button  >
-       <mat-icon>account_circle</mat-icon>{{sellerName}}
-    </button>
-    <button mat-button routerLink="seller-add-product"> 
-       Add Product
-    </button>
-    <button   mat-button routerLink="seller-home">
-        Product List
-    </button>
-
-    <button   mat-button (click)="logout()">
-        Logout
-        </button>
-  </span>
-</span>
 
 </mat-toolbar>

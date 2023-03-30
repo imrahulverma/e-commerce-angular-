@@ -1,1 +1,49 @@
-<p>home works!</p>
+<div class="container-fluid">
+
+
+    <div class="row">
+        <ngb-carousel *ngIf="popularProduct">
+            <ng-template ngbSlide *ngFor="let p of popularProduct">
+                <div class="picsum-img-wrapper">
+                    <img class="carousel-img d-block" style="margin: auto;" [src]="p.productImageUrl"
+                        alt="Random first slide" />
+                </div>
+                <div class="carousel-caption">
+                    <!-- <h3>First slide label</h3>
+                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p> -->
+                </div>
+            </ng-template>
+        </ngb-carousel>
+    </div>
+
+
+    <div class="row cat">
+        <div class="category-header">
+            <p>Popular Mobiles</p>
+        </div>
+        <div class="col-lg-2" *ngFor="let m of mobile">
+
+            <div class="product-container">
+                <a routerLink="/details/{{m.id}}"><img [src]="m.productImageUrl" alt=""></a>
+                    <a routerLink="/details/{{m.id}}"> <p class="product-name">{{m.productName}}</p></a>
+                <p class="product-price">₹{{m.productPrice}}  <span class="strikedPrice"> ₹{{m.productPrice*1.1|number:'1.0-0'}}</span></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row cat">
+        <div class="category-header">
+            <p>Books</p>
+        </div>
+        <div class="col-lg-2" *ngFor="let b of books">
+
+            <div class="product-container">
+                <a routerLink="/details/{{b.id}}"> <img [src]="b.productImageUrl" alt=""></a>
+                <a routerLink="/details/{{b.id}}"> <p class="product-name">{{b.productName}}</p></a>
+                <p class="product-price">₹{{b.productPrice}}  <span class="strikedPrice"> ₹{{b.productPrice*1.1|number:'1.0-0'}} </span></p>
+            </div>
+        </div>
+    </div>
+
+
+</div>

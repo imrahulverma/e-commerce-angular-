@@ -1,0 +1,76 @@
+<div class="container-fluid">
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="hero-area"><img width="90%" src="https://cdn.pixabay.com/photo/2016/08/17/04/43/template-1599667_960_720.png" alt=""></div>
+      </div>
+      <div class="col-lg-4 form-col">
+        <div class="form">
+    
+        <!-- signup form  -->
+    <form [formGroup]="userRegisterForm"  *ngIf="signUpFormView">
+      <h2>Seller Signup</h2>
+      <mat-divider></mat-divider>
+    
+      <mat-form-field >
+          <mat-label>Name</mat-label>
+          <input type="text" matInput formControlName="name" name="name" >
+      </mat-form-field>
+      
+      <mat-form-field >
+          <mat-label>Email Id</mat-label>
+          <input type="email" matInput formControlName="emailId" name="emailId" >
+        </mat-form-field>
+    
+        <mat-form-field >
+          <mat-label>Phone No.</mat-label>
+          <input type="text" matInput formControlName="phno" name="phno" >
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" color="primary" >
+          <mat-label >Password</mat-label>
+          <input type="password" matInput formControlName="password" name="password" >
+        </mat-form-field>
+    
+      <span>
+          <button mat-raised-button color="accent" (click)="signUp()">Signup</button>
+      </span>
+      <p> Already a user? <a (click)="loginToggle()"> Login</a>  </p>
+    </form>
+    
+    <!-- --------------------------------------------------------------------------------------- -->
+    
+    <!-- login form  -->
+    
+    <form [formGroup]="userLoginForm" *ngIf="!signUpFormView"  >
+    <h2>Seller Login</h2>
+    <mat-divider></mat-divider>
+    
+    
+    <mat-form-field >
+        <mat-label>Email Id</mat-label>
+        <input type="email" matInput formControlName="emailId" name="emailId" >
+      </mat-form-field>
+    
+    
+      <mat-form-field appearance="fill" color="primary" >
+        <mat-label >Password</mat-label>
+        <input type="password" matInput formControlName="password" name="password" >
+      </mat-form-field>
+    
+    <span>
+        <button mat-raised-button color="accent" (click)="login()">Login</button>
+    </span>
+    <p>New user?<a (click)="signuptoggle()">Signup</a></p>
+    </form>
+    
+    
+    
+      </div>
+      </div>
+      
+    </div>
+    
+    
+    
+    </div>
